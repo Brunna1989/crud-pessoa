@@ -2,9 +2,16 @@ package com.br.crud_pessoa.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name = "enderecos")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Endereco {
 
     @Id
@@ -26,14 +33,15 @@ public class Endereco {
     @NotBlank(message = "O campo CEP deve ser obrigatório.")
     private String cep;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "pessoa_id")
+    @ToString.Exclude
     private Pessoa pessoa;
 
-
-
-
-
-
-
 }
+
+
+
+
+
+
