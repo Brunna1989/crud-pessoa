@@ -2,12 +2,10 @@ package com.br.crud_pessoa.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Entity
+@Data
 @Table(name = "enderecos")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,6 +24,9 @@ public class Endereco {
 
     @NotBlank(message = "O campo bairro deve ser obrigatório.")
     private String bairro;
+
+    @NotBlank(message = "O campo estado deve ser obrigatório.")
+    private String estado;
 
     @NotBlank(message = "O campo cidade deve ser obrigatório.")
     private String cidade;

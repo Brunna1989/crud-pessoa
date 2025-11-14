@@ -27,7 +27,7 @@ public class Pessoa {
 
     @NotBlank(message = "O campo CPF deve ser obrigatório")
     @Column(nullable = false, unique = true)
-    private String CPF;
+    private String cpf;
 
     @Builder.Default
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
