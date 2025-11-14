@@ -1,7 +1,5 @@
 package com.br.crud_pessoa.model;
 
-
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -10,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "pessoas", uniqueConstraints = {@UniqueConstraint(columnNames = "cpf")})
@@ -28,9 +28,12 @@ public class Pessoa {
 
     private LocalDate dataNascimento;
 
+    @NotBlank(message = "O campo CPF deve ser obrigatório")
+    @Column(nullable = false, unique = true)
+    private String CPF;
 
-
-
-
-
+    private List<Endereco> enderecos = new ArrayList<>();
 }
+
+
+
